@@ -10,12 +10,12 @@ At last, it can show the SVD result.
 </br>
 Usage     
 -------------------------    
-Compute the eigen value:
-1. type the value of the matrix
-2. ```python eigenDemo.py```
-3. the result is shown below
-
+Compute the eigen value:    
+1. type the value of the matrix    
+2. ```python eigenDemo.py```    
+3. the result is shown below    
+</br>
 Compute the SVD:
 1. type the value of the matrix    
 2. ```python svdDemo.py```    
-*  You can also create your matrix. Modify the code by yourself.    
+*  You can also create your matrix. Modify the code by yourself.      
