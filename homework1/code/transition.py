@@ -1,3 +1,6 @@
+# Constant to enable/disable the log inform
+LOG = False
+
 class Transition(object):
     """
     This class defines a set of transitions which are applied to a
@@ -10,7 +13,7 @@ class Transition(object):
     REDUCE = 'REDUCE'
 
     def __init__(self):
-        raise ValueError('Do not construct this object!')
+        raise ValueError('Do not construct this object!')    
 
     @staticmethod
     def left_arc(conf, relation):
@@ -20,7 +23,7 @@ class Transition(object):
         """
         #raise NotImplementedError('Please implement left_arc!')
         #return -1
-        #print "[LA]\t", conf.buffer, '\t', conf.stack
+        Log("[LA]", conf)
         if not conf.buffer and not conf.stack:
             return -1
 
@@ -28,7 +31,7 @@ class Transition(object):
             return -1
 
         idx_wi = conf.stack[-1]
-        idx_wj = conf.buffer.pop(0)
+        idx_wj = conf.buffer[0]
 
         conf.stack.pop(-1)
         conf.arcs.append((idx_wj, relation, idx_wi))
@@ -40,7 +43,7 @@ class Transition(object):
             :param configuration: is the current configuration
             :return : A new configuration or -1 if the pre-condition is not satisfied
         """
-        #print "[RA]\t", conf.buffer, '\t', conf.stack
+        Log("[RA]", conf)   
         if not conf.buffer or not conf.stack:
             return -1
 
@@ -60,7 +63,7 @@ class Transition(object):
         """
         #raise NotImplementedError('Please implement reduce!')
         #return -1
-        #print "[R]\t", conf.buffer, '\t', conf.stack
+        Log("[R]", conf)
         if not conf.buffer or not conf.stack:
             return -1
 
@@ -78,13 +81,21 @@ class Transition(object):
         """
         #raise NotImplementedError('Please implement shift!')
         #return -1
-        #print "[S]\t", conf.buffer, '\t', conf.stack
+        Log("[S]", conf)
         if not conf.buffer or not conf.stack:
             return -1
-
-        #if len(conf.stack) == 1:
-        #    return -1
         
         idx_wj = conf.buffer.pop(0)
         conf.stack.append(idx_wj)
         return conf
+
+def Log(function, conf):
+    """
+        Print the log of status toward Nivre algorithm
+    """
+    if LOG:
+        print function, "\t"
+        print "stack:  ", conf.stack
+        print "buffer: ", conf.buffer
+        print "arc:    ", conf.arcs
+        print ""
