@@ -1,20 +1,12 @@
 import sys, os
 import sets
 
-def X(list1, list2):
-    """
-        Do the cartesian product toward 2 list
-        For example, two list [A, B] [C, B] want to merge.
-        The result: [AC, AB, BC, BB]
-
-        Arg:    The two list want to merge
-        Ret:    The result list
-    """
-    res = []
-    for i in range(len(list1)):
-        for j in range(len(list2)):
-            res.append(list1[i]+list2[j])
-    return res
+"""
+    This program is a simple CYK implementation.
+    The question refer from here: https://www.youtube.com/watch?v=VTH1k-xiswM
+    Author: SunnerLi
+    Date:   10/2016
+"""
 
 class CNF(object):
     """
@@ -110,14 +102,11 @@ class Table(object):
         if (len(self.table[i][j]) == 1 and self.table[i][j] == [' '])\
             or len(self.table[i][j]) == 0:
                 self.table[i][j] = _list
-                #print "set ( ", i, " , ", j, " )", _list
         elif not _list[0] == ' ':
             _set = set(self.table[i][j])
             for c in _list:
                 _set.add(c)
-            self.table[i][j] = list(_set)
-            #print "append ( ", i, " , ", j, " )", _list
-        
+            self.table[i][j] = list(_set)        
 
     def _get(self, i, j):
         """
@@ -139,6 +128,20 @@ class Table(object):
                     print "\t",
             print ""
 
+def X(list1, list2):
+    """
+        Do the cartesian product toward 2 list
+        For example, two list [A, B] [C, B] want to merge.
+        The result: [AC, AB, BC, BB]
+
+        Arg:    The two list want to merge
+        Ret:    The result list
+    """
+    res = []
+    for i in range(len(list1)):
+        for j in range(len(list2)):
+            res.append(list1[i]+list2[j])
+    return res
 
 def test_addRule():
     """

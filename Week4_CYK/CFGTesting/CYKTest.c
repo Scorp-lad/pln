@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+/*
+    This program is just the testing code.
+    You should run the other python code to see the CYK result instead.
+*/
 int main(){
     int i, j, k;
     for(i=2; i<=4; i++){
