@@ -1,0 +1,6 @@
+N V N
+N V Adj
+N V Adj
+N V Adj
+N V N
+N V N
