@@ -1,4 +1,9 @@
-#./scorer2 SVM-Spanish.answer data/Spanish-dev.key
+./scorer2 KNN-English.answer data/English-dev.key
+./scorer2 KNN-Spanish.answer data/Spanish-dev.key
+./scorer2 KNN-Catalan.answer data/Catalan-dev.key
+./scorer2 SVM-English.answer data/English-dev.key
+./scorer2 SVM-Spanish.answer data/Spanish-dev.key
+./scorer2 SVM-Catalan.answer data/Catalan-dev.key
 ./scorer2 Best-English.answer data/English-dev.key
 ./scorer2 Best-Spanish.answer data/Spanish-dev.key
 ./scorer2 Best-Catalan.answer data/Catalan-dev.key
