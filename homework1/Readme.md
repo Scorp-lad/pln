@@ -16,7 +16,7 @@ At Second part, The question request to add the additional features to enhence t
 The complexity of the Nivre algorithm is big O( n ). It is a big improvement rather than the CYK-like algorithm. On the contrary, Each word would be processed once. By the specification, this algorithm cannot deal with the non-projective problem.    
 <br\>
 <br\>
-Usage    
+Contain    
 ---------------------------    
 ```
 * trainAll.py - train the whole three model at one time    
@@ -25,6 +25,13 @@ Usage
 ```
 <br\>
 <br\>
+Usage    
+---------------------------    
+1. Decompress the training data and testing data: ```unzip data.zip```
+2. Run the code: ```python test.py```
+<br\>
+<br\>
+
 Notice    
 ---------------------------    
 If you're the student of the class, **DONT COPY THE CODE TO GET THE ACCEPTION TOWARD THE CLASS !!!** The purpose of this project is remain the code. Furthermore, it shows for the people who is interested but curious about the meaning of the question.     
