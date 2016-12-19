@@ -1,6 +1,7 @@
 """
     This program would measure the association strength
 """
+from collections import Counter
 import math
 
 # Laplace parameter
@@ -24,13 +25,13 @@ def PMI(string1, string2):
 
     # Get the probability by the maximun likelihood estimation
     for sentence in sentences:
-        sentence = set(sentence.split())
+        sentence = Counter(sentence.split())
         if string1 in sentence:
-            occurenceString1 += 1
+            occurenceString1 += sentence[string1]
         if string2 in sentence:
-            occurenceString2 += 1
+            occurenceString2 += sentence[string2]
             if string1 in sentence:
-                occurenceBoth += 1
+                occurenceBoth += min(sentence[string1], sentence[string2])
         for word in sentence:
             wordBag.add(word)
     
